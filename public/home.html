@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <title>Meus Recados</title>
+</head>
+
+<body>
+    <header>
+        <!-- BOTÃO MENU -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex justify-content-end">
+                <button class="btn btn-outline-secondary btn-lg me-3 botao-menu-flutuante" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#menu-div" aria-controls="offcanvasRight">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </nav>
+        <!--MENU -->
+        <div class="offcanvas offcanvas-end menu" style="width: 20rem; height: 18rem;" tabindex="-1" id="menu-div"
+            aria-labelledby="offcanvasRightLabel" data-bs-scroll="true">
+            <div class="offcanvas-header d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body text-center">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5 id="menu-email"></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="col-12 my-3 mx-1">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <h6>Dark mode</h6>
+                                        <input type="checkbox" class="checkbox" id="chk">
+                                        <label for="chk" class="label">
+                                            <i class="bi bi-check-circle"></i>
+                                            <div class="ball"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-danger mt-3" id="botao-sair">Sair</button>
+            </div>
+        </div>
+    </header>
+    <main class="container justify-content-center">
+        <!-- CARD -->
+        <section class="row p-5" id="espaco-card"></section>
+        <!-- BOTAO FLUTUENTE-->
+        <button type="button" class="btn btn-primary btn-lg botao-flutuante" data-bs-toggle="modal"
+            data-bs-target="#modal-criar"><i class="bi bi-plus-lg"></i></button>
+        <!-- MODAL APAGAR RECADO-->
+        <div class="modal fade" id="modal-apagar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modalDark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Ao excluir esse recado ele será perdido definitivamente
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                        <button type="button" class="btn btn-success" id="botao-sim">Sim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL EDITAR RECADO-->
+        <div class="modal fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modalDark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Atualizar Recado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-editar">
+                            <div class="mb-3">
+                                <label for="input-editar-descricao" class="col-form-label">Descrição:</label>
+                                <input type="text" class="form-control" id="input-editar-descricao" value="Descrição">
+                            </div>
+                            <div class="mb-3">
+                                <label for="input-editar-detalhamento" class="col-form-label">Detalhamento:</label>
+                                <textarea class="form-control" id="input-editar-detalhamento"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="botao-atualizar">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL CRIAR RECADO-->
+        <div class="modal fade" id="modal-criar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modalDark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Criar Recado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-criar">
+                            <div class="mb-3">
+                                <label for="input-criar-descricao" class="col-form-label">Descrição:</label>
+                                <input type="text" class="form-control" id="input-criar-descricao">
+                            </div>
+                            <div class="mb-3">
+                                <label for="input-criar-detalhamento" class="col-form-label">Detalhamento:</label>
+                                <textarea class="form-control" id="input-criar-detalhamento"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="botao-criar">Criar</button>
+                    </div>
+                    <div class="col-4 offset-3">
+                        <div id="espaco-alerta-modal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ALERTA -->
+        <section class="row">
+            <div class="col-4 offset-4">
+                <div id="espaco-alerta" class="alert"></div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="./dist/home.js"></script>
+</body>
+
+</html>

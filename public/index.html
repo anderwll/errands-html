@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Bem-Vindo</title>
+</head>
+
+<body>
+    <h2>Seja Bem-Vindo</h2>
+    <!--DE TUDO-->
+    <div class="container" id="container">
+        <!--ALERTA-->
+        <section class="row">
+            <div class="col-4 offset-4">
+                <div id="espaco-alerta-index" class="alert"></div>
+            </div>
+        </section>
+        <!--DO FORMULARIO CADASTRO-->
+        <div class="form-container cadastro-container">
+            <form id="form-cadastro">
+                <h1>Cadastrar-se</h1>
+                <span id="span-notificacao">Use seu e-mail para realizar seu cadastro</span>
+                <input type="text" name="nome" id="input-cadastro-nome" placeholder="Nome completo" />
+                <input type="email" name="email" id="input-cadastro-email" placeholder="E-mail" />
+                <input type="password" name="senha" id="input-cadastro-senha" placeholder="Senha" />
+                <input type="password" name="senha" id="input-cadastro-senha-repetir" placeholder="Repetir Senha" />
+                <button type="submit" class="btn-animation">Cadastrar</button>
+                <p class="mobile" >Já possiu conta? <button type="button" id="btn-acessar-mobile">Acesse</button> </p>
+            </form>
+        </div>
+        <!--DO FORMULARIO LOGIN-->
+        <div class="form-container login-container">
+            <form id="form-login">
+                <h1>Login</h1>
+                <span>Use sua conta para acessar o sistema</span>
+                <input type="email" name="email" id="input-login-email" placeholder="E-mail" />
+                <input type="password" name="senha" id="input-login-senha" placeholder="Senha" />
+                <a href="#">Esqueceu sua senha?</a>
+                <button type="submit" class="btn-animation">Entrar</button>
+                <p class="mobile" >Não possiu conta? <button type="button" id="btn-cadastrar-mobile">Cadastre-se</button> </p>
+            </form>
+        </div>
+        <!--DO BACKGROUD BONITO OVERLAY-->
+        <div class="overlay-container">
+            <div class="overlay">
+                <!--DA DIREITA-->
+                <div class="padrao-overlay overlay-direita">
+                    <h1>Olá, amigo</h1>
+                    <p>
+                        Cadastre-se utilizando seus dados pessoais e comece sua jornada
+                        conosco.
+                    </p>
+                    <button type="button" class="btn-transparente" id="btn-cadastrar">
+                        Criar uma conta
+                    </button>
+                </div>
+                <!--DA ESQUERDA-->
+                <div class="padrao-overlay overlay-esquerda">
+                    <h1>Bem vindo de volta!</h1>
+                    <p>Para conectar-se faça o login com suas informações.</p>
+                    <button type="button" class="btn-transparente" id="btn-acessar">
+                        Acessar minha conta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--DO FOOTER-->
+    <footer>
+        <p>
+            Criado por Anderson Wilmsen &copy;<a href="http://www.growdev.com.br" target="_blank">Growdev</a>
+            - 2022
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>

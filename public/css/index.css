@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  height: 90vh;
+}
+
+div.container {
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+span {
+  font-size: 12px;
+  margin: 20px 0 10px 0;
+}
+
+a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0px;
+}
+
+footer a {
+  color: #3c97bf;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer {
+  background-color: #222;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 999;
+}
+
+button {
+  border-radius: 20px;
+  color: #ffff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  transition: transform 80ms ease-in;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.btn-animation {
+  background: linear-gradient(to right, #5d2938, #7b3c4c, #aa5a63, #f1848c, #f6b4ac);
+  background-size: 300% 300%;
+  animation: backgroundOverlay 12s ease infinite;
+  border: 1px solid transparent;
+}
+button.btn-transparente {
+  background-color: transparent;
+  border: 1px solid #ffff;
+}
+
+form {
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.login-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.cadastro-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.overlay-container {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+  transition: transform 0.6s ease-in-out;
+}
+
+.container.painel-direito-ativo .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background: linear-gradient(to right, #5d2938, #7b3c4c, #aa5a63, #f1848c, #f6b4ac);
+  background-size: 300% 300%;
+  color: #ffffff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  animation: backgroundOverlay 12s ease infinite;
+}
+
+.padrao-overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-esquerda {
+  transform: translateX(-20%);
+}
+
+.overlay-direita {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.painel-direito-ativo .overlay-esquerda {
+  transform: translateX(0);
+}
+
+.container.painel-direito-ativo .overlay-direita {
+  transform: translateX(20%);
+}
+
+.container.painel-direito-ativo .login-container {
+  transform: translateX(100%);
+}
+
+.container.painel-direito-ativo .cadastro-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+.container.painel-direito-ativo .overlay {
+  transform: translateX(50%);
+}
+
+.mobile {
+  display: none;
+}
+
+button#btn-cadastrar-mobile {
+  border: none;
+  color: #333;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: none;
+  padding: 0;
+  letter-spacing: 1px;
+  transition: none;
+}
+
+button#btn-acessar-mobile {
+  border: none;
+  color: #333;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: none;
+  padding: 0;
+  letter-spacing: 1px;
+  transition: none;
+}
+
+button#btn-cadastrar-mobile:hover {
+  color: #3c97bf;
+}
+
+button#btn-acessar-mobile:hover {
+  color: #3c97bf;
+}
+
+.alert {
+  position: fixed !important;
+  bottom: 4rem;
+  z-index: 99999;
+}
+
+@keyframes show {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+@keyframes backgroundOverlay {
+  0% { background-position: 0% 50%;}
+  25% { background-position: 50% 100%;}
+  50% { background-position: 100% 50%;}
+  75% { background-position: 50% 0%;}
+  100% { background-position: 0% 50%;}
+}
+
+@media screen and (max-width: 900px){
+  div.container {
+    max-width: 95%;
+  }
+
+  .overlay-container{
+    display: none;
+  }
+
+  .login-container {
+    width: 100%;
+    z-index: 999;
+  }
+
+  .cadastro-container {
+    width: 100%;
+    z-index: 999;
+  }
+
+  .container.painel-direito-ativo .cadastro-container {
+    transform: translateX(0%);
+    z-index: 999;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .alert {
+    right: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+}
